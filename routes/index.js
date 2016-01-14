@@ -15,7 +15,8 @@ router.get('/books/index', function(req, res, next) {
 router.get('/books', function(req, res) {
     unirest.get('http://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json?api-key=' + api_key)
       .end(function (response) {
-        console.log(response.body);
+        res.render('books/index', {books:response.body.results.books})
+        console.log(response.body.results.books);
       })
 })
 

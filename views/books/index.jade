@@ -1,6 +1,11 @@
 extends ../layout
 
 block content
-  h1 This is my index
+
+
+  for book in books
+    h2= book['title']
+    p by
+    h2= book['author']
+    img(src = book['book_image'])
   
-  a(href='/books/new') New
